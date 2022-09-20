@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const cors = require('cors');
-
+const axios = require('axios').default;
 app.use(express.json());
 app.listen(3001, () => {
    console.log('running server');
@@ -42,7 +42,18 @@ const db = mysql.createConnection({
     );
  });
 
-
+ app.get("/Crear-cuenta", (req, res)  => {
+    const sqlSelect = "select Correo from usuarios";
+    db.query(sqlSelect, (err, result) => {
+       res.send(result);
+    });
+ });
+ app.get("/login", (req, res)  => {
+    const sqlSelect = "select Correo,Password from usuarios";
+    db.query(sqlSelect, (err, result) => {
+       res.send(result);
+    });
+ });
  app.post('/login', (req, res) => {
     
     const correo = req.body.Correo;
