@@ -10,9 +10,9 @@ app.listen(3001, () => {
 const mysql = require('mysql2');
 
 const db = mysql.createConnection({
-    user: 'root',
+    user: 'admin_filmtrip',
     host: 'localhost',
-    password: 'password',
+    password: 'admin123',
     database: 'filmtrip',
  });
 
