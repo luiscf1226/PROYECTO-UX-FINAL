@@ -12,13 +12,8 @@ import chicamovie from '../images/chciamovie.jpg';
 import {useState} from "react";
 import Sinopsis from "./Sinopsis";
 import { useNavigate } from "react-router-dom";
-import {useLocation} from 'react-router-dom';
+
 function Peliculas (){
-    const retornopeli2=()=>{
-        navigate('/Cines'); 
-    }
-    const {state}=useLocation();
-    var cine=state.cine;
     const recibogo=()=>{
         navigate('/Recibo'); 
     };
@@ -80,7 +75,7 @@ function Peliculas (){
     const navigate= useNavigate();
     const Sinopsis=()=>{
         console.log('prop a pasar: '+imgpeli2)
-        navigate('/Sinopsis',{state:{name:imgpeli2,sinop:sinopsis,link:imgLink,generop:genero,duracionp:duracion,ratingp:rating,cine:cine}}); 
+        navigate('/Sinopsis',{state:{name:imgpeli2,sinop:sinopsis,link:imgLink,generop:genero,duracionp:duracion,ratingp:rating}}); 
     }
     return(
         <div className="peliculas">
@@ -109,10 +104,10 @@ function Peliculas (){
              <i className="fa-solid fa-right"></i>
              <hr className="linea-peli"></hr>
              <div className="peli-bar">
-                <button  onClick={()=>retornopeli2()} className="logos-peli-bara">
+                <button className="logos-peli-bara">
                 <i className="fa-solid fa-house"></i>
                 </button>
-                <button className="logos-peli-bara">
+                <button onClick={()=>recibogo()} className="logos-peli-bara">
                 <i className="fa-solid fa-ticket"></i>
                 </button>
                 <button  onClick={()=>moverUser()} className="logos-peli-bara">

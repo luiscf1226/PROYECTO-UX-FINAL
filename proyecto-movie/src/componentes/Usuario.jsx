@@ -26,9 +26,7 @@ function Usuario(){
                     <label className="membresia-u" for="member">Membresía</label>
                     <select className="select-mem-u" name="member" id="membership" form="">
                     <option value="volvo">Tipo de Membresía</option>
-                    <option value="volvo">Premium User</option>
-                    <option value="volvo">Regular User</option>
-                    <option value="volvo">Basic User</option>
+                    
                     </select>   
                 </div>
                   
@@ -38,10 +36,7 @@ function Usuario(){
                     <label className="idioma-u" for="idioma">Idioma</label>
                     <select className="select-idioma-u" name="member" id="idioma" form="">
                     <option value="volvo">Elegir Idioma</option>
-                    <option value="volvo">Español</option>
-                    <option value="volvo">Ingles</option>
-                    <option value="volvo">Mandarin</option>
-
+                    
                     </select>   
                 </div>
                   

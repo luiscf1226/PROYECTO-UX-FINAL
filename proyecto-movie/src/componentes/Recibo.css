@@ -92,23 +92,25 @@
     display: flex;
     margin-top: 5%;
 }
-.text-peli-r{
-    text-align: center;
-}
 .div-cines-r3{
-    margin-left:5%;
-    width: 100%;
+    margin-left: 40%;
+    width: 40px;
     height: 22px;
+    left: 168px;
+    top: 229px;
+
     font-family: 'Inter';
     font-style: normal;
     font-weight: 600;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 22px;
+    /* identical to box height, or 183% */
+
+    justify-content: center;
+    gap: 220%;
     color: #2E3054;
-    margin-top: 5%;
     display: flex;
-    gap:30%;
-    
+    margin-top: 5%;
 }
 .gracias-r{
     width: 40px;

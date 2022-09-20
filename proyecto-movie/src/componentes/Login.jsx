@@ -30,14 +30,28 @@ function Login(){
 
     var entrar=()=>{
       
-            Axios.get('http://localhost:3001/login').then((response) => {
-                if(response.data.find(item=>item.Correo==correo)&&response.data.find(item=>item.Correo==correo).Password==password){
-                    alert('Bienvenido usuario: '+correo);
-                    navigate('/Cines');
-                }else{
-                    alert('Login Incorrecto')
+        Axios.post('http://localhost:3001/login', {
+            Correo: correo,
+            Password: password,
+            })
+            .then((response) => {
+            
+            if(!response.data.message){
+                setCheckL(checkearLogin=true); 
+                
+                let s1=String(response.data[0].Correo);
+                let s2=String(correo);
+                if(s1!=s2){
+                    alert('no');
                 }
-
+                if(s1===s2){
+                    alert('Bienvenido usuario: '+response.data[0].Correo);
+                    navigate('/Cines'); 
+                }
+                 
+            }else if(response.data.message){
+                alert('NO');
+            }
             });
             
 
