@@ -55,13 +55,14 @@ const pool = mysql.createPool({
 
  app.get("/Crear-cuenta", (req, res)  => {
     const sqlSelect = "select Correo from usuarios";
-    db.query(sqlSelect, (err, result) => {
+    
+    pool.query(sqlSelect, (err, result) => {
        res.send(result);
     });
  });
  app.get("/login", (req, res)  => {
     const sqlSelect = "select Correo,Password from usuarios";
-    db.query(sqlSelect, (err, result) => {
+    pool.query(sqlSelect, (err, result) => {
        res.send(result);
     });
  });
