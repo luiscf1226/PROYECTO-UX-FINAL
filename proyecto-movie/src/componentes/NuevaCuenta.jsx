@@ -7,8 +7,9 @@ import Axios from "axios";
 import Terminos from "./Terminos";
 
 function NuevaCuenta() {
+    var [boolterminos,setTerm]=useState(false);
     var[validarCheck, setCheck] = useState(false);
-
+    var[validarCorreo,setCorreo2]=useState(false);
     var validarCuenta=false;
     const navigate= useNavigate();
     const [isSubscribed, setIsSubscribed] = useState(false);
@@ -16,29 +17,50 @@ function NuevaCuenta() {
     const handleChange = event => {
       if (event.target.checked) {
         setCheck(true);
+        setTerm(true);
         console.log('✅ Checkbox is checked');
         validarCheck=true;
       } else {
         console.log('⛔️ Checkbox is NOT checked');
       }
-      setIsSubscribed(current => !current);
+      
     };
     const bienvenido=()=>{
-        if ((!/[^a-zA-Z]/.test(usernameReg))&&(!/[^a-zA-Z]/.test(apellido))&&passwordReg===password&&password===passwordReg
-        &&correo.includes("@")&&validarCheck==true){
+        Axios.get('http://localhost:3001/Crear-cuenta').then((response) => {
+                if(response.data.find(item=>item.Correo==correo)){
+                    alert('Correo Ya tiene Cuenta');
+                    setCorreo2(false);
+                    
+                }else{
+                  
+                    if ((!/[^a-zA-Z]/.test(usernameReg))&&(!/[^a-zA-Z]/.test(apellido))&&passwordReg===password&&password===passwordReg
+                    &&correo.includes("@")&&validarCheck==true&&validarCorreo==false&&boolterminos==true){
+            
+                        validarCuenta=true;
+                        Axios.post('http://localhost:3001/register', {
+                            Primer_Nombre: usernameReg,
+                            Primer_Apellido: apellido,
+                            Password: passwordReg,
+                            Correo: correo
+                            
+                        })
+                        alert('Cuenta Creada Exitosamente');
+                    }else{
+                        
+                        alert('Error al Crear Cuenta');
+                    }
+                    if(validarCuenta==true){
+                        navigate('/login'); 
+                    }
 
-            validarCuenta=true;
-            alert('Cuenta Creada Exitosamente');
-        }else{
-            console.log('wtf: '+validarCheck)
-            alert('Error al Crear Cuenta');
-        }
-        if(validarCuenta==true){
-            navigate('/login'); 
-        }
+                }
+
+            });
+       
        
     }
     const terminos=()=>{
+       
         navigate('/terminos');
     }
     const bienvenido2=()=>{
@@ -47,13 +69,7 @@ function NuevaCuenta() {
 
     const crearCuenta = () =>{
         if(validarCuenta){
-            Axios.post('http://localhost:3001/register', {
-                Primer_Nombre: usernameReg,
-                Primer_Apellido: apellido,
-                Password: passwordReg,
-                Correo: correo
-                
-            })
+           
         }
     }
 
