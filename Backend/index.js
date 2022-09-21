@@ -9,12 +9,23 @@ app.listen(3001, () => {
 
 const mysql = require('mysql2');
 
+/*
 const db = mysql.createConnection({
-    user: 'admin_filmtrip',
-    host: 'localhost',
-    password: 'admin123',
-    database: 'filmtrip',
+    user: 'b59556dbc9911d',
+    host: 'us-cdbr-east-06.cleardb.net',
+    password: '30662ceb',
+    database: 'heroku_ae71baf0956b5c0',
  });
+*/
+
+const pool = mysql.createPool({
+    user: 'b59556dbc9911d',
+    host: 'us-cdbr-east-06.cleardb.net',
+    password: '30662ceb',
+    database: 'heroku_ae71baf0956b5c0',
+});
+
+
 
  app.use(
     cors({
@@ -32,7 +43,7 @@ const db = mysql.createConnection({
         const Correo = req.body.Correo;
 
 
-    db.execute(
+    pool.query(
       'INSERT INTO usuarios (Primer_Nombre, Primer_Apellido, Password, Correo) VALUES (?,?,?,?)',
       [Primer_Nombre, Primer_Apellido, Password, Correo],
       (err, result)=> {
@@ -48,7 +59,8 @@ const db = mysql.createConnection({
     const correo = req.body.Correo;
     const password = req.body.Password;
     var entrologin=false;
-    db.execute(
+
+    pool.query(
         "SELECT * FROM usuarios WHERE Correo = ? AND Password = ?",
         [correo, password],
         (err, result)=> {
