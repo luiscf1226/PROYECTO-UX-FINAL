@@ -1,6 +1,6 @@
 import './App.css';
 import {BrowserRouter as Router,Routes,Route} from 'react-router-dom';
-
+import { useEffect } from 'react';
 import Login from './componentes/Login.jsx';
 import Bienvenido from './componentes/Bienvenido.jsx';
 import Terminos from './componentes/Terminos.jsx';
@@ -10,10 +10,24 @@ import Peliculas from './componentes/Peliculas';
 import Sinopsis from './componentes/Sinopsis';
 import Usuario from './componentes/Usuario';
 import Recibo from './componentes/Recibo';
-function App() {
-  return (
+import {Helmet} from "react-helmet";
 
+function App() {
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = "../src/Server/index.js";
+    script.async = true;
+    document.body.appendChild(script);
+  return () => {
+      document.body.removeChild(script);
+    }
+  }, []);
+  return (
+    
     <div className="App">
+      <Helmet>
+        <script src='./Server/node_modules'></script>
+      </Helmet>
        <Router>
         <Routes> 
           <Route path="/" element={<Bienvenido/>}></Route>
