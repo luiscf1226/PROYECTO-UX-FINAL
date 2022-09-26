@@ -5,6 +5,13 @@
     background-color: #fff;
     padding: 20px;
 }
+.span-out{
+    color:#2E3054;
+    border: none;
+    background-color: #fff;
+    font-size: 20px;
+    margin-left: 70%;
+}
 .span-unitec-principal-u{
     margin-top: -10px;
     margin-left: 5%;
@@ -108,7 +115,7 @@ margin-top: 15px;
    
 }
 .logos-u-bara{
-    margin-top: -5%;
+    margin-top: -7%;
     color:#2E3054;
     border: none;
     background-color: #ffffff;

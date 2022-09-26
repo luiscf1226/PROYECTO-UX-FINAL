@@ -30,6 +30,7 @@ function Sinopsis (){
     var rating=state.ratingp;
     console.log(linkmg);
     const recibogo=()=>{
+        alert('¡Gracias por su Compra!')
         navigate('/Recibo'); 
     }
     return (
@@ -60,31 +61,31 @@ function Sinopsis (){
             </div>
             <span className="sinopsis-hoy">Hoy</span>
             <div className="div-hoy-s">
-                <div className="hoy-cuadro-s">
+                <div onClick={()=>recibogo()} className="hoy-cuadro-s">
                     <p className="info-cuadro-s">15:50<br></br>2D<br></br>Doblada</p>
                 </div>
-                <div className="hoy-cuadro-s">
+                <div onClick={()=>recibogo()} className="hoy-cuadro-s">
                 <p className="info-cuadro-s">16:00<br></br>2D<br></br>Sub</p>
                 </div>
-                <div className="hoy-cuadro-s">
+                <div onClick={()=>recibogo()} className="hoy-cuadro-s">
                 <p className="info-cuadro-s">18:30<br></br>2D<br></br>Doblada</p>
                 </div>
-                <div className="hoy-cuadro-s">
+                <div onClick={()=>recibogo()} className="hoy-cuadro-s">
                 <p className="info-cuadro-s">20:00<br></br>2D<br></br>Sub</p>
                 </div>
             </div>
             <span className="sinopsis-man">Mañana</span>
             <div className="div-man-s">
-                <div className="man-cuadro-s">
+                <div onClick={()=>recibogo()} className="man-cuadro-s">
                 <p className="info-cuadro-s">15:50<br></br>2D<br></br>Doblada</p>
                 </div>
-                <div className="man-cuadro-s">
+                <div onClick={()=>recibogo()} className="man-cuadro-s">
                 <p className="info-cuadro-s">16:00<br></br>2D<br></br>Sub</p>
                 </div>
-                <div className="man-cuadro-s">
+                <div onClick={()=>recibogo()} className="man-cuadro-s">
                 <p className="info-cuadro-s">18:30<br></br>2D<br></br>Doblada</p>
                 </div>
-                <div className="man-cuadro-s">
+                <div onClick={()=>recibogo()} className="man-cuadro-s">
                 <p className="info-cuadro-s">20:00<br></br>2D<br></br>Sub</p>
                 </div>
             </div>

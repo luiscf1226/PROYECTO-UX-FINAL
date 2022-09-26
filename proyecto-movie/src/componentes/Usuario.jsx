@@ -12,10 +12,14 @@ function Usuario(){
     const recibogo=()=>{
         navigate('/Recibo'); 
     }
+    const retornohome=()=>{
+        navigate('/'); 
+    }
     return(
         
         <div className="usuario">
             <span className='span-unitec-principal-u'>UNITEC</span>
+            <button onClick={()=>retornohome()} className="span-out"><i className='fa-sharp fa-solid fa-power-off '></i></button>
             <div className="div-logo-u">
              <img className="logomain-u" src={logomain}></img>
             </div>
